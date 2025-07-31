@@ -1,27 +1,39 @@
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Chatbot', path: '/chatbot' },
-    { name: 'University Website', path: 'https://www.mut.ac.ke/', external: true },
-    { name: 'Masomo Portal', path: 'https://elearning.mut.ac.ke/', external: true },
-    { name: 'Student Portal', path: 'https://studentportal.mut.ac.ke/', external: true },
+    { name: "Home", path: "/" },
+    { name: "Chatbot", path: "/chatbot" },
+    {
+      name: "University Website",
+      path: "https://www.mut.ac.ke/",
+      external: true,
+    },
+    {
+      name: "Masomo Portal",
+      path: "https://elearning.mut.ac.ke/",
+      external: true,
+    },
+    {
+      name: "Student Portal",
+      path: "https://studentportal.mut.ac.ke/",
+      external: true,
+    },
   ];
 
   const contactInfo = [
     {
       icon: <MapPin size={18} />,
-      text: 'P.O. Box 75-01000, Murang\'a, Kenya',
+      text: "P.O. Box 75-01000, Murang'a, Kenya",
     },
     {
       icon: <Phone size={18} />,
-      text: '+254 (0) 60 30721',
+      text: "+254 (0) 60 30721",
     },
     {
       icon: <Mail size={18} />,
-      text: 'info@mut.ac.ke',
+      text: "info@mut.ac.ke",
     },
   ];
 
@@ -33,7 +45,9 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <span className="text-university-green font-bold text-xl">MU</span>
+                <span className="text-university-green font-bold text-xl">
+                  MU
+                </span>
               </div>
               <div>
                 <h3 className="text-xl font-bold">Murang'a University</h3>
@@ -41,8 +55,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-university-green-light leading-relaxed">
-              Your intelligent assistant for navigating Murang'a University services and information. 
-              Get instant help with admissions, academics, and campus life.
+              Your intelligent assistant for navigating Murang'a University
+              services and information. Get instant help with admissions,
+              academics, and campus life.
             </p>
           </div>
 
@@ -84,7 +99,9 @@ export default function Footer() {
                   <div className="text-university-green-light mt-1">
                     {contact.icon}
                   </div>
-                  <span className="text-university-green-light">{contact.text}</span>
+                  <span className="text-university-green-light">
+                    {contact.text}
+                  </span>
                 </li>
               ))}
             </ul>

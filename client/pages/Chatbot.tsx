@@ -1,28 +1,28 @@
-import { useState, useRef, useEffect } from 'react';
-import { Send, User, Bot, Loader2 } from 'lucide-react';
+import { useState, useRef, useEffect } from "react";
+import { Send, User, Bot, Loader2 } from "lucide-react";
 
 interface Message {
   id: string;
   text: string;
-  sender: 'user' | 'bot';
+  sender: "user" | "bot";
   timestamp: Date;
 }
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: '1',
-      text: 'Welcome to the Murang\'a University Chatbot! I\'m here to assist you with any questions about the university. How can I help you today?',
-      sender: 'bot',
+      id: "1",
+      text: "Welcome to the Murang'a University Chatbot! I'm here to assist you with any questions about the university. How can I help you today?",
+      sender: "bot",
       timestamp: new Date(),
     },
   ]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -35,12 +35,12 @@ export default function Chatbot() {
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputMessage,
-      sender: 'user',
+      sender: "user",
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInputMessage("");
     setIsLoading(true);
 
     // Simulate API call to chatbot backend
@@ -48,32 +48,32 @@ export default function Chatbot() {
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
         text: `Thank you for your question about "${inputMessage}". As your Murang'a University assistant, I can provide information about admissions, academic programs, campus facilities, student services, fees, and much more. What would you like to know specifically?`,
-        sender: 'bot',
+        sender: "bot",
         timestamp: new Date(),
       };
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
       setIsLoading(false);
     }, 1500);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
   const quickQuestions = [
-    'What are the admission requirements?',
-    'Tell me about available courses',
-    'How much are the fees?',
-    'Where is the campus located?',
-    'What facilities are available?',
-    'How do I apply for scholarships?',
+    "What are the admission requirements?",
+    "Tell me about available courses",
+    "How much are the fees?",
+    "Where is the campus located?",
+    "What facilities are available?",
+    "How do I apply for scholarships?",
   ];
 
   return (
@@ -109,27 +109,37 @@ export default function Chatbot() {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
                   className={`max-w-sm lg:max-w-lg px-4 py-3 rounded-lg ${
-                    message.sender === 'user'
-                      ? 'bg-university-green text-white'
-                      : 'bg-gray-100 text-gray-800'
+                    message.sender === "user"
+                      ? "bg-university-green text-white"
+                      : "bg-gray-100 text-gray-800"
                   }`}
                 >
                   <div className="flex items-start space-x-3">
-                    {message.sender === 'bot' && (
-                      <Bot size={20} className="text-university-green mt-1 flex-shrink-0" />
+                    {message.sender === "bot" && (
+                      <Bot
+                        size={20}
+                        className="text-university-green mt-1 flex-shrink-0"
+                      />
                     )}
-                    {message.sender === 'user' && (
-                      <User size={20} className="text-white mt-1 flex-shrink-0" />
+                    {message.sender === "user" && (
+                      <User
+                        size={20}
+                        className="text-white mt-1 flex-shrink-0"
+                      />
                     )}
                     <div className="flex-1">
                       <p className="text-sm leading-relaxed">{message.text}</p>
-                      <p className={`text-xs mt-2 ${
-                        message.sender === 'user' ? 'text-university-green-light' : 'text-gray-500'
-                      }`}>
+                      <p
+                        className={`text-xs mt-2 ${
+                          message.sender === "user"
+                            ? "text-university-green-light"
+                            : "text-gray-500"
+                        }`}
+                      >
                         {formatTime(message.timestamp)}
                       </p>
                     </div>
@@ -137,7 +147,7 @@ export default function Chatbot() {
                 </div>
               </div>
             ))}
-            
+
             {/* Typing Indicator */}
             {isLoading && (
               <div className="flex justify-start">
@@ -200,7 +210,7 @@ export default function Chatbot() {
         {/* Help Section */}
         <div className="mt-8 text-center">
           <p className="text-gray-600">
-            Need more help? Visit our{' '}
+            Need more help? Visit our{" "}
             <a
               href="https://www.mut.ac.ke/"
               target="_blank"
@@ -208,8 +218,8 @@ export default function Chatbot() {
               className="text-university-green hover:underline"
             >
               official website
-            </a>
-            {' '}or contact us directly.
+            </a>{" "}
+            or contact us directly.
           </p>
         </div>
       </div>

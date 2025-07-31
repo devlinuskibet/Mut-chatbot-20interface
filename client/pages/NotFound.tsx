@@ -22,10 +22,12 @@ const NotFound = () => {
 
         {/* Error Message */}
         <h1 className="text-6xl font-bold text-university-green mb-4">404</h1>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Page Not Found
+        </h2>
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Sorry, the page you're looking for doesn't exist. It might have been moved, 
-          deleted, or the URL might be incorrect.
+          Sorry, the page you're looking for doesn't exist. It might have been
+          moved, deleted, or the URL might be incorrect.
         </p>
 
         {/* Action Buttons */}
@@ -37,7 +39,7 @@ const NotFound = () => {
             <Home size={20} />
             <span>Return to Home</span>
           </Link>
-          
+
           <Link
             to="/chatbot"
             className="bg-white hover:bg-university-bg-light text-university-green font-semibold py-3 px-6 rounded-full border-2 border-university-green transition-colors duration-200 flex items-center space-x-2 justify-center"
@@ -49,7 +51,8 @@ const NotFound = () => {
 
         {/* Help Text */}
         <p className="text-sm text-gray-500 mt-8">
-          If you believe this is an error, please contact our support team or try using our chatbot for assistance.
+          If you believe this is an error, please contact our support team or
+          try using our chatbot for assistance.
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,11 +10,23 @@ export default function Navigation() {
   };
 
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Chatbot', path: '/chatbot' },
-    { name: 'University Website', path: 'https://www.mut.ac.ke/', external: true },
-    { name: 'Masomo Portal', path: 'https://elearning.mut.ac.ke/', external: true },
-    { name: 'Student Portal', path: 'https://studentportal.mut.ac.ke/', external: true },
+    { name: "Home", path: "/" },
+    { name: "Chatbot", path: "/chatbot" },
+    {
+      name: "University Website",
+      path: "https://www.mut.ac.ke/",
+      external: true,
+    },
+    {
+      name: "Masomo Portal",
+      path: "https://elearning.mut.ac.ke/",
+      external: true,
+    },
+    {
+      name: "Student Portal",
+      path: "https://studentportal.mut.ac.ke/",
+      external: true,
+    },
   ];
 
   return (
@@ -38,7 +50,7 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
+            {menuItems.map((item) =>
               item.external ? (
                 <a
                   key={item.name}
@@ -57,8 +69,8 @@ export default function Navigation() {
                 >
                   {item.name}
                 </Link>
-              )
-            ))}
+              ),
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -77,7 +89,7 @@ export default function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              {menuItems.map((item) => (
+              {menuItems.map((item) =>
                 item.external ? (
                   <a
                     key={item.name}
@@ -98,8 +110,8 @@ export default function Navigation() {
                   >
                     {item.name}
                   </Link>
-                )
-              ))}
+                ),
+              )}
             </div>
           </div>
         )}

@@ -1,29 +1,29 @@
-import { useState, useRef, useEffect } from 'react';
-import { Send, MessageCircle, User, Bot, Loader2 } from 'lucide-react';
+import { useState, useRef, useEffect } from "react";
+import { Send, MessageCircle, User, Bot, Loader2 } from "lucide-react";
 
 interface Message {
   id: string;
   text: string;
-  sender: 'user' | 'bot';
+  sender: "user" | "bot";
   timestamp: Date;
 }
 
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: '1',
-      text: 'Hello! I\'m your Murang\'a University Chatbot Assistant. How can I help you today?',
-      sender: 'bot',
+      id: "1",
+      text: "Hello! I'm your Murang'a University Chatbot Assistant. How can I help you today?",
+      sender: "bot",
       timestamp: new Date(),
     },
   ]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -36,12 +36,12 @@ export default function Home() {
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputMessage,
-      sender: 'user',
+      sender: "user",
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInputMessage("");
     setIsLoading(true);
 
     // Simulate API call to chatbot backend
@@ -49,23 +49,23 @@ export default function Home() {
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
         text: `I understand you're asking about "${inputMessage}". As a Murang'a University assistant, I can help you with information about admissions, courses, campus facilities, student services, and more. What specific information would you like to know?`,
-        sender: 'bot',
+        sender: "bot",
         timestamp: new Date(),
       };
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
       setIsLoading(false);
     }, 1500);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
   return (
@@ -92,9 +92,10 @@ export default function Home() {
             {/* Description */}
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Your intelligent companion for navigating Murang'a University. Get instant assistance with 
-                admissions, academic programs, campus facilities, student services, and much more. 
-                Available 24/7 to help you succeed in your educational journey.
+                Your intelligent companion for navigating Murang'a University.
+                Get instant assistance with admissions, academic programs,
+                campus facilities, student services, and much more. Available
+                24/7 to help you succeed in your educational journey.
               </p>
             </div>
 
@@ -120,41 +121,48 @@ export default function Home() {
               What Can I Help You With?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore the various ways our AI assistant can support your university experience
+              Explore the various ways our AI assistant can support your
+              university experience
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Admissions & Applications',
-                description: 'Get guidance on admission requirements, application processes, and deadlines.',
-                icon: '📚',
+                title: "Admissions & Applications",
+                description:
+                  "Get guidance on admission requirements, application processes, and deadlines.",
+                icon: "📚",
               },
               {
-                title: 'Academic Programs',
-                description: 'Learn about courses, departments, faculty, and curriculum details.',
-                icon: '🎓',
+                title: "Academic Programs",
+                description:
+                  "Learn about courses, departments, faculty, and curriculum details.",
+                icon: "🎓",
               },
               {
-                title: 'Campus Life',
-                description: 'Discover facilities, clubs, events, and student activities.',
-                icon: '🏫',
+                title: "Campus Life",
+                description:
+                  "Discover facilities, clubs, events, and student activities.",
+                icon: "🏫",
               },
               {
-                title: 'Student Services',
-                description: 'Access information about support services, resources, and assistance.',
-                icon: '🤝',
+                title: "Student Services",
+                description:
+                  "Access information about support services, resources, and assistance.",
+                icon: "🤝",
               },
               {
-                title: 'Financial Information',
-                description: 'Learn about fees, scholarships, and financial aid opportunities.',
-                icon: '💰',
+                title: "Financial Information",
+                description:
+                  "Learn about fees, scholarships, and financial aid opportunities.",
+                icon: "💰",
               },
               {
-                title: 'Technical Support',
-                description: 'Get help with online portals, systems, and digital resources.',
-                icon: '💻',
+                title: "Technical Support",
+                description:
+                  "Get help with online portals, systems, and digital resources.",
+                icon: "💻",
               },
             ].map((feature, index) => (
               <div
@@ -194,8 +202,18 @@ export default function Home() {
                 className="text-white hover:text-university-green-light transition-colors"
                 aria-label="Close chat"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -205,27 +223,37 @@ export default function Home() {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
                     className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                      message.sender === 'user'
-                        ? 'bg-university-green text-white'
-                        : 'bg-gray-100 text-gray-800'
+                      message.sender === "user"
+                        ? "bg-university-green text-white"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     <div className="flex items-start space-x-2">
-                      {message.sender === 'bot' && (
-                        <Bot size={16} className="text-university-green mt-1 flex-shrink-0" />
+                      {message.sender === "bot" && (
+                        <Bot
+                          size={16}
+                          className="text-university-green mt-1 flex-shrink-0"
+                        />
                       )}
-                      {message.sender === 'user' && (
-                        <User size={16} className="text-white mt-1 flex-shrink-0" />
+                      {message.sender === "user" && (
+                        <User
+                          size={16}
+                          className="text-white mt-1 flex-shrink-0"
+                        />
                       )}
                       <div>
                         <p className="text-sm">{message.text}</p>
-                        <p className={`text-xs mt-1 ${
-                          message.sender === 'user' ? 'text-university-green-light' : 'text-gray-500'
-                        }`}>
+                        <p
+                          className={`text-xs mt-1 ${
+                            message.sender === "user"
+                              ? "text-university-green-light"
+                              : "text-gray-500"
+                          }`}
+                        >
                           {formatTime(message.timestamp)}
                         </p>
                       </div>
@@ -233,7 +261,7 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              
+
               {/* Typing Indicator */}
               {isLoading && (
                 <div className="flex justify-start">
