@@ -54,6 +54,13 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Murang'a University Colors */
+    --university-green: 142 63% 31%; /* #1A7F40 */
+    --university-green-light: 142 45% 70%; /* #A5D6A7 */
+    --university-green-dark: 142 63% 20%; /* Darker shade */
+    --university-accent: 142 45% 70%; /* #A5D6A7 */
+    --university-bg-light: 120 100% 97%; /* #F0FDF4 */
   }
 
   .dark {
@@ -92,6 +99,13 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Murang'a University Colors - Dark Mode */
+    --university-green: 142 63% 31%; /* #1A7F40 */
+    --university-green-light: 142 45% 70%; /* #A5D6A7 */
+    --university-green-dark: 142 63% 20%; /* Darker shade */
+    --university-accent: 142 45% 70%; /* #A5D6A7 */
+    --university-bg-light: 120 100% 97%; /* #F0FDF4 */
   }
 }
 
