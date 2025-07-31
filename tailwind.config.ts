@@ -27,6 +27,13 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        university: {
+          green: "hsl(var(--university-green))",
+          "green-light": "hsl(var(--university-green-light))",
+          "green-dark": "hsl(var(--university-green-dark))",
+          accent: "hsl(var(--university-accent))",
+          "bg-light": "hsl(var(--university-bg-light))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
